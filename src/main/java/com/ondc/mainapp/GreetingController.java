@@ -12,6 +12,17 @@ public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
+    @GetMapping("/")
+    public String test(){
+        System.out.println("### Rest API HIT /");
+        return "Test Root Check OK";
+    }
+
+    @GetMapping("/healthcheck")
+    public String healthcheck(){
+        System.out.println("### Rest API HIT /");
+        return "HealthCheck OK";
+    }
     @GetMapping("/rest-greeting")
     public RestGreeting greeting(@RequestParam(value="name", defaultValue = "World") String name){
         System.out.println("### Rest API HIT /rest-greeting");
